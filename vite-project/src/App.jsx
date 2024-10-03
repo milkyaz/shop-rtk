@@ -1,8 +1,8 @@
-import { UserView } from "./user/UserView";
+import { ShopView } from "./shop/ShopView";
 function App() {
   return (
     <>
-      <UserView />
+      <ShopView />
     </>
   );
 }

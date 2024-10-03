@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchUsers } from "./userSlice";
+import { fetchGoods } from "./shopSlice";
 
-export const UserView = () => {
+export const ShopView = () => {
   const product = useSelector((state) => state.product);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchUsers());
+    dispatch(fetchGoods());
   }, []);
   return (
     <div>

@@ -8,25 +8,25 @@ const initialState = {
 };
 
 // Generates pending, fulfilled and rejected action types
-export const fetchUsers = createAsyncThunk("user/fetchUsers", () => {
+export const fetchGoods = createAsyncThunk("shop/fetchGoods", () => {
   return axios
     .get("https://fakestoreapi.com/products")
     .then((response) => response.data);
 });
 
-const userSlice = createSlice({
+const shopSlice = createSlice({
   name: "shop",
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(fetchUsers.pending, (state) => {
+    builder.addCase(fetchGoods.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchUsers.fulfilled, (state, action) => {
+    builder.addCase(fetchGoods.fulfilled, (state, action) => {
       state.loading = false;
       state.shop = action.payload;
       state.error = "";
     });
-    builder.addCase(fetchUsers.rejected, (state, action) => {
+    builder.addCase(fetchGoods.rejected, (state, action) => {
       state.loading = false;
       state.shop = [];
       state.error = action.error.message;
@@ -34,4 +34,4 @@ const userSlice = createSlice({
   },
 });
 
-export default userSlice.reducer;
+export default shopSlice.reducer;
