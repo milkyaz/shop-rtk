@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 function ShopItem() {
   const product = useSelector((state) => state.product);
